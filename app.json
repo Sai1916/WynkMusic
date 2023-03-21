@@ -1,6 +1,8 @@
 {
   "expo": {
     "scheme": "acme",
+    "userInterfaceStyle" : "dark",
+    "backgroundColor": "#052534",
     "web": {
       "bundler": "metro"
     },
