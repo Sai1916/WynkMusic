@@ -1,4 +1,4 @@
-import { FlatList, ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { FontAwesome5, Feather } from "@expo/vector-icons"; 
 
@@ -8,44 +8,46 @@ const search = () => {
     {
       id: 1,
       mood: 'Happy',
-      image: 'https://images.unsplash.com/photo-1443916568596-df5a58c445e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
+      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
     },
     {
       id: 2,
       mood: 'Sad',
-      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      image: 'https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2FkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
     },
     {
       id: 3,
       mood: 'Romantic',
-      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      image: 'https://images.unsplash.com/photo-1531448143467-9d228363342d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJvbWFudGljfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
     },
     {
       id: 4,
       mood: 'Party',
-      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFydHl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60',
     },
     {
       id: 5,
       mood: 'Workout',
-      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      image: 'https://images.unsplash.com/photo-1581009137042-c552e485697a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60',
     },
     {
       id: 6,
       mood: 'Chill',
-      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      image: 'https://images.unsplash.com/photo-1529066516367-36973222c957?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNoaWxsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
     },
     {
       id: 7,
       mood: 'Focus',
-      image: 'https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhhcHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      image: 'https://images.unsplash.com/photo-1517956050595-8932d6d6b740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZvY3VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
     }
   ]
 
   const Item = ({item}) => (
-      <ImageBackground source={item?.image} style={styles.bgImage}>
+    <TouchableOpacity style={styles.itemContainer}>
+      <ImageBackground source={{uri: item.image}} style={styles.bgImage}>
         <Text style={styles.moodText}>{item.mood}</Text>
       </ImageBackground>
+    </TouchableOpacity>
   )
 
   return (
@@ -59,6 +61,7 @@ const search = () => {
         data={moodData}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
+        numColumns={2}
       />
     </View>
   )
@@ -69,6 +72,7 @@ export default search
 const styles = StyleSheet.create({
   container:{
     marginVertical: 10,
+    marginBottom: 50
   },
   inputView:{
     flexDirection: 'row',
@@ -88,11 +92,24 @@ const styles = StyleSheet.create({
   },
   moodText:{
     color: 'white',
+    position: 'absolute',
+    bottom: 10,
+    left: 10,
+    fontSize: 22,
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
   },
   bgImage:{
-    width: 300,
-    height:300,
+    width: 160,
+    height:160,
     resizeMode: 'contain',
-    zIndex: -1,
-  }
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  itemContainer:{
+    // backgroundColor: 'white',
+    borderRadius: 10,
+    margin: 10,
+    alignItems: 'center',
+  },
 })

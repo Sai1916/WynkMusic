@@ -10,12 +10,12 @@ const Layout = () => {
   return (
     <ThemeProvider value={DarkTheme}>
       <Tabs 
-        // initialRouteName="index"
+        // initialRouteName="music"
       screenOptions={{
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: '#2d585a',
         tabBarIconStyle: {color: 'white'},
-        tabBarStyle: {height: 74},
+        tabBarStyle: {height: 74,backgroundColor:'#151926'},
         headerShown: false,
         tabBarLabelStyle:{fontFamily: 'sans-serif-medium', fontSize: 12},
         tabBarItemStyle: {alignItems: 'center', justifyContent: 'center',paddingVertical: 12},

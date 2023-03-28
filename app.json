@@ -2,7 +2,7 @@
   "expo": {
     "scheme": "acme",
     "userInterfaceStyle" : "dark",
-    "backgroundColor": "#052534",
+    "backgroundColor": "#151926",
     "web": {
       "bundler": "metro"
     },
